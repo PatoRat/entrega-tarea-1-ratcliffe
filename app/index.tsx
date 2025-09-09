@@ -21,9 +21,9 @@ export default function Index() {
           Tarjeta
         </Text>
       </Link>
-      <Link href="/modal">
+      <Link href="/perfil">
         <Text>
-          Modal
+          Perfil
         </Text>
       </Link>
     </View>
