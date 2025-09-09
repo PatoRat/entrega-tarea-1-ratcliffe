@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-export default function ModalIndex() {
+export default function Modal() {
   return (
     <View
       style={{

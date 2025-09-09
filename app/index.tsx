@@ -1,6 +1,6 @@
-// import { Link } from "expo-router";
-// import { View, Text } from "react-native";
-import { View } from "react-native";
+import { Link } from "expo-router";
+import { Text, View } from "react-native";
+// import { View } from "react-native";
 
 export default function Index() {
   return (
@@ -11,17 +11,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      
-    </View>
-  );
-}
-/*
-<Link href="/contador">
-        <Text>
-          Contador
-        </Text>
-      </Link>
-<Link href="/contador">
+      <Link href="/contador">
         <Text>
           Contador
         </Text>
@@ -36,4 +26,6 @@ export default function Index() {
           Modal
         </Text>
       </Link>
-*/
+    </View>
+  );
+}
