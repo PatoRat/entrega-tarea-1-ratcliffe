@@ -1,4 +1,4 @@
-import { Modal } from "@/components/Modal";
+import { Ventana } from "@/components/Ventana";
 import { View } from "react-native";
 
 export default function PerfilIndex() {
@@ -10,7 +10,7 @@ export default function PerfilIndex() {
         alignItems: "center",
       }}
     >
-      <Modal texto="Patricio Ratcliffe" />
+      <Ventana texto="Nombre Apellido" />
     </View>
   );
 }

@@ -49,7 +49,8 @@ const myStyles = (colorFondo: string, colorLetra: string) => (
             width: "80%"
         },
         textStyles: {
-            color: colorLetra
+            color: colorLetra,
+            userSelect: "none"
         }
     })
 );

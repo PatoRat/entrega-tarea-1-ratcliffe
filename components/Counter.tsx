@@ -38,7 +38,8 @@ export function Counter() {
           <Text style={{
             color: "#fff",
             fontWeight: "bold",
-            fontSize: 20
+            fontSize: 20,
+            userSelect: "none"
           }}>
             Disminuir (Pressable)
           </Text>
