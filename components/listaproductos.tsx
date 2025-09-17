@@ -1,6 +1,7 @@
 import {
     FlatList,
     Image,
+    StyleSheet,
     Text,
     View
 } from "react-native";
@@ -38,10 +39,10 @@ type ItemProps = {
 
 const Item = ({ imagen, titulo, descripcion, precio }: ItemProps) => (
     <View>
-        <Image source={imagen} />
+        <Image source={imagen}  />
         <Text>{titulo}</Text>
         <Text>
-            {descripcion}
+            {descripcion}{" "}
             <Text>
                 {precio}
             </Text>
@@ -61,6 +62,13 @@ export const ListaProductos = () => {
                     precio={item.precio}
                 />}
             keyExtractor={item => item.id}
+            ItemSeparatorComponent={() => (
+                <View style={{ margin: 10 }} />
+            )}
         />
     );
 };
+
+const styles = StyleSheet.create({
+    
+});
