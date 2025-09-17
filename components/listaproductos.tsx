@@ -14,32 +14,32 @@ const ListaProductos = () => {
     return (
         <>
             <TextInput
-                style={{ margin: 10 }}
+                style={styles.inputBusqueda}
                 onChangeText={setBusqueda}
                 value={busqueda}
+                placeholder="Escribe aquí..."
             />
             <FlatList
                 data={IMAGENES}
                 renderItem={({ item }) => {
                     if (item.titulo.toLocaleLowerCase().startsWith(busqueda.toLocaleLowerCase())) {
                         return (
-                            <Item
-                                imagen={item.imagen}
-                                titulo={item.titulo}
-                                precio={item.precio}
-                            />
+                            <View style={styles.separador}>
+                                <Item
+                                    imagen={item.imagen}
+                                    titulo={item.titulo}
+                                    precio={item.precio}
+                                />
+                            </View>
                         )
                     }
                     else {
                         return (
-                            <View style={styles.separador} />
+                            <></>
                         )
                     }
                 }}
                 keyExtractor={item => item.id}
-                ItemSeparatorComponent={() => (
-                    <View style={styles.separador} />
-                )}
             />
         </>
     );
@@ -47,7 +47,19 @@ const ListaProductos = () => {
 
 const styles = StyleSheet.create({
     separador: {
-        margin: 10
+        marginVertical: 10,
+        alignItems: "center",
+    },
+    inputBusqueda: {
+        width: "90%",
+        padding: 10,
+        marginVertical: 12,
+        borderWidth: 1,
+        borderColor: "#ccc",
+        borderRadius: 8,
+        backgroundColor: "#fff",
+        fontSize: 16,
+        textAlign: "center"
     },
 });
 
