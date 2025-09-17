@@ -29,6 +29,7 @@ const ListaProductos = () => {
                                     imagen={item.imagen}
                                     titulo={item.titulo}
                                     precio={item.precio}
+                                    descripcion={item.descripcion}
                                 />
                             </View>
                         )

@@ -28,7 +28,7 @@ type ItemProps = {
     imagen: ImageSourcePropType,
     titulo: string,
     precio: string,
-    descripcion?: string
+    descripcion: string
 };
 
 export { IMAGENES, ItemProps };
