@@ -20,9 +20,9 @@ const ListaProductos = () => {
                 placeholder="Escribe aquí..."
             />
             <FlatList
-                data={IMAGENES.filter((item)=>{
-                    item.titulo.toLocaleLowerCase().startsWith(busqueda.toLocaleLowerCase());
-                })}
+                data={IMAGENES.filter((item) =>
+                    item.titulo.toLowerCase().startsWith(busqueda.toLowerCase())
+                )}
                 renderItem={({ item }) => {
                     return (
                         <View style={styles.separador}>

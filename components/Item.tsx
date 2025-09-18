@@ -2,6 +2,7 @@ import { ItemProps } from "@/scripts/data-and-tipe";
 import { useState } from "react";
 import {
     Image,
+    ImageResizeMode,
     Modal,
     Pressable,
     StyleSheet,
@@ -15,6 +16,7 @@ const pressRetentionOffsetValues = { top: 20, bottom: 30, left: 50, right: 50 }
 const Item = ({ imagen, titulo, precio, descripcion }: ItemProps) => {
     const [modalVisible, setModal] = useState(false);
     const [esFavorito, setFavorito] = useState(false);
+    const [modoImagen, setResizeMode] = useState<ImageResizeMode>("contain")
 
     const styles = stylesDinamico(esFavorito);
 
@@ -26,6 +28,10 @@ const Item = ({ imagen, titulo, precio, descripcion }: ItemProps) => {
         setFavorito(prev => !prev)
     };
 
+    const modeContain = () => setResizeMode("contain");
+    const modeCover = () => setResizeMode("cover");
+    const modeStretch = () => setResizeMode("stretch");
+
     return (
         <>
             <View style={styles.card}>
@@ -35,7 +41,7 @@ const Item = ({ imagen, titulo, precio, descripcion }: ItemProps) => {
                     hitSlop={hitSlopValues}
                     pressRetentionOffset={pressRetentionOffsetValues}
                 >
-                    <Image source={imagen} style={styles.imagenInicial} />
+                    <Image source={imagen} style={styles.imagenInicial} resizeMode="contain" />
                     <Text style={styles.titulo}>{titulo}</Text>
                     <Text style={styles.precio}>{precio}</Text>
                 </Pressable>
@@ -49,10 +55,22 @@ const Item = ({ imagen, titulo, precio, descripcion }: ItemProps) => {
 
                 <View style={styles.container}>
                     <View style={styles.modal}>
-                        <Image source={imagen} style={styles.imagenGrande} />
+                        <Image source={imagen} style={styles.imagenGrande} resizeMode={modoImagen} />
                         <Text style={styles.tituloGrande}>{titulo}</Text>
                         <Text style={styles.descripcion}>{descripcion}</Text>
                         <Text style={styles.precioModal}>{precio}</Text>
+                        <Pressable style={styles.boton} onPress={modeContain}>
+                            <Text style={styles.textoBoton}>Escalar Imagen Contain</Text>
+                        </Pressable>
+                        <Pressable style={styles.boton} onPress={modeCover}>
+                            <Text style={styles.textoBoton}>Escalar Imagen Cover</Text>
+                        </Pressable>
+                        <Pressable style={styles.boton} onPress={modeStretch}>
+                            <Text style={styles.textoBoton}>Escalar Imagen Stretch</Text>
+                        </Pressable>
+                        <Pressable style={styles.boton} onPress={accionarModal}>
+                            <Text style={styles.textoBoton}>Cerrar Modal</Text>
+                        </Pressable>
                     </View>
                 </View>
 
@@ -67,7 +85,7 @@ const stylesDinamico = (isFavorito: boolean) => (
             width: 160,
             padding: 12,
             borderRadius: 12,
-            backgroundColor: isFavorito ? 'yellow' : 'black',
+            backgroundColor: isFavorito ? 'yellow' : 'white',
             alignItems: "center",
             shadowColor: "#000",
             shadowOffset: { width: 0, height: 2 },
@@ -77,7 +95,6 @@ const stylesDinamico = (isFavorito: boolean) => (
         imagenInicial: {
             width: 100,
             height: 100,
-            resizeMode: "contain",
             marginBottom: 10,
         },
         titulo: {
@@ -95,7 +112,6 @@ const stylesDinamico = (isFavorito: boolean) => (
         imagenGrande: {
             width: 200,
             height: 200,
-            resizeMode: "contain",
             marginBottom: 15,
         },
         tituloGrande: {
@@ -133,6 +149,19 @@ const stylesDinamico = (isFavorito: boolean) => (
             shadowOpacity: 0.2,
             shadowRadius: 6,
         },
+        boton: {
+            marginTop: 20,
+            paddingHorizontal: 20,
+            paddingVertical: 10,
+            borderRadius: 8,
+            backgroundColor: "#2a9d8f",
+        },
+        textoBoton: {
+            color: "#fff",
+            fontSize: 16,
+            fontWeight: "600",
+            userSelect: "none"
+        }
     })
 );
 
