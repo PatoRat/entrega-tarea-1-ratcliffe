@@ -14,21 +14,16 @@ const pressRetentionOffsetValues = { top: 20, bottom: 30, left: 50, right: 50 }
 
 const Item = ({ imagen, titulo, precio, descripcion }: ItemProps) => {
     const [modalVisible, setModal] = useState(false);
-    const [colorBorde, setColor] = useState("#fff");
+    const [esFavorito, setFavorito] = useState(false);
 
-    const styles = stylesDinamico(colorBorde);
+    const styles = stylesDinamico(esFavorito);
 
     const accionarModal = () => {
         setModal(prev => !prev);
     };
 
     const marcarFavorito = () => {
-        if (colorBorde === "#fff") {
-            setColor("#eefa4cff");
-        }
-        else {
-            setColor("#fff");
-        }
+        setFavorito(prev => !prev)
     };
 
     return (
@@ -66,13 +61,13 @@ const Item = ({ imagen, titulo, precio, descripcion }: ItemProps) => {
     )
 };
 
-const stylesDinamico = (colorFondo: string) => (
+const stylesDinamico = (isFavorito: boolean) => (
     StyleSheet.create({
         card: {
             width: 160,
             padding: 12,
             borderRadius: 12,
-            backgroundColor: colorFondo,
+            backgroundColor: isFavorito ? 'yellow' : 'black',
             alignItems: "center",
             shadowColor: "#000",
             shadowOffset: { width: 0, height: 2 },

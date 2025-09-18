@@ -20,25 +20,20 @@ const ListaProductos = () => {
                 placeholder="Escribe aquí..."
             />
             <FlatList
-                data={IMAGENES}
+                data={IMAGENES.filter((item)=>{
+                    item.titulo.toLocaleLowerCase().startsWith(busqueda.toLocaleLowerCase());
+                })}
                 renderItem={({ item }) => {
-                    if (item.titulo.toLocaleLowerCase().startsWith(busqueda.toLocaleLowerCase())) {
-                        return (
-                            <View style={styles.separador}>
-                                <Item
-                                    imagen={item.imagen}
-                                    titulo={item.titulo}
-                                    precio={item.precio}
-                                    descripcion={item.descripcion}
-                                />
-                            </View>
-                        )
-                    }
-                    else {
-                        return (
-                            <></>
-                        )
-                    }
+                    return (
+                        <View style={styles.separador}>
+                            <Item
+                                imagen={item.imagen}
+                                titulo={item.titulo}
+                                precio={item.precio}
+                                descripcion={item.descripcion}
+                            />
+                        </View>
+                    )
                 }}
                 keyExtractor={item => item.id}
             />
