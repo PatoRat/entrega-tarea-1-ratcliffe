@@ -48,3 +48,23 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+
+## Configuración automática de la URL del backend
+
+Para que la app Expo sepa a qué backend conectarse, usamos un **script que detecta la IP local de la PC** y genera el archivo `src/config.ts` automáticamente.  
+De esta forma **no se suben IPs personales al repositorio** y cada persona que ejecute el proyecto obtiene la configuración correcta en su máquina sin editar nada.
+
+### ¿Cómo funciona?
+
+- Antes de iniciar Expo, se ejecuta `scripts/set-ip.js`.
+- Importante cambiar en el main la constante:
+  ```js
+  const COMO_ARRANCA_MI_IP = "10.0.";
+  // En mi caso empezaba con 10.0 ...
+- El script obtiene la primera IP local disponible de la PC.
+- Con esa IP arma la URL `http://<IP_LOCAL>:3000`.
+- Escribe esa URL en `src/config.ts` como:
+  ```ts
+  export const URL_BACKEND = 'http://<TU_IP_PERSONAL>:3000';
+- El archivo `src/config.ts` se crea con el expo start, y no se pushea para no revelar dirección IP
