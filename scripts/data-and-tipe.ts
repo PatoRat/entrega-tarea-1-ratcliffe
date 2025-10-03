@@ -26,7 +26,7 @@ const PRODUCTOS = [
 
 type ItemProps = {
     id: number,
-    imagen: string,
+    imagenURL: string,
     titulo: string,
     precio: string,
     descripcion: string

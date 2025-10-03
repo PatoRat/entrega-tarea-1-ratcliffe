@@ -41,7 +41,7 @@ const ListaProductos = () => {
 
     const crearNuevoProducto = async () => {
         const producto: Omit<ItemProps, "id"> = {
-            imagen: imagenURLProducto,
+            imagenURL: imagenURLProducto,
             titulo: tituloProducto,
             precio: precioProducto,
             descripcion: descripcionProducto
@@ -95,7 +95,7 @@ const ListaProductos = () => {
                     return (
                         <View style={styles.separador}>
                             <Item
-                                imagen={item.imagen}
+                                imagenURL={item.imagenURL}
                                 titulo={item.titulo}
                                 precio={item.precio}
                                 descripcion={item.descripcion}
