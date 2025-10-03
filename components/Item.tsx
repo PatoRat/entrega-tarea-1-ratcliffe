@@ -13,7 +13,7 @@ import {
 const hitSlopValues = { top: 10, bottom: 10, left: 50, right: 50 };
 const pressRetentionOffsetValues = { top: 20, bottom: 30, left: 50, right: 50 }
 
-const Item = ({ imagen, titulo, precio, descripcion }: Omit<ItemProps, "id">) => {
+const Item = ({ imagenURL, titulo, precio, descripcion }: Omit<ItemProps, "id">) => {
     const [modalVisible, setModal] = useState(false);
     const [esFavorito, setFavorito] = useState(false);
     const [modoImagen, setResizeMode] = useState<ImageResizeMode>("contain")
@@ -41,7 +41,7 @@ const Item = ({ imagen, titulo, precio, descripcion }: Omit<ItemProps, "id">) =>
                     hitSlop={hitSlopValues}
                     pressRetentionOffset={pressRetentionOffsetValues}
                 >
-                    <Image source={{ uri: imagen }} style={styles.imagenInicial} resizeMode="contain" />
+                    <Image source={{ uri: imagenURL }} style={styles.imagenInicial} resizeMode="contain" />
                     <Text style={styles.titulo}>{titulo}</Text>
                     <Text style={styles.precio}>{precio}</Text>
                 </Pressable>
@@ -55,7 +55,7 @@ const Item = ({ imagen, titulo, precio, descripcion }: Omit<ItemProps, "id">) =>
 
                 <View style={styles.container}>
                     <View style={styles.modal}>
-                        <Image source={{ uri: imagen }} style={styles.imagenGrande} resizeMode={modoImagen} />
+                        <Image source={{ uri: imagenURL }} style={styles.imagenGrande} resizeMode={modoImagen} />
                         <Text style={styles.tituloGrande}>{titulo}</Text>
                         <Text style={styles.descripcion}>{descripcion}</Text>
                         <Text style={styles.precioModal}>{precio}</Text>

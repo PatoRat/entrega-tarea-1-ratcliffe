@@ -24,18 +24,16 @@ const ListaProductos = () => {
 
     const cargarProductos = async () => {
         try {
-            console.log(`${URL_BACKEND}/products`);
             const response = await fetch(`${URL_BACKEND}/products`);
             if (!response.ok) {
-                throw new Error('No se pudo traer los productos: 404');
+                throw new Error('No se pudo traer los productos:' + response.status);
             }
 
             const productos = await response.json();
-            console.log(productos);
             setProductos(productos);
 
         } catch (error) {
-            console.error("Error buscando los productos:", error);
+            console.error("Error buscando los productos: ", error);
         }
     }
 
