@@ -3,14 +3,12 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "prestart": "npm run set-ip",
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "ios": "expo start --ios",
     "lint": "expo lint",
-    "set-ip": "node scripts/set-ip.js",
-    "android": "npm run set-ip && expo run:android",
-    "web": "npm run set-ip && expo start --web"
+    "android": "expo run:android",
+    "web": "expo start --web"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
