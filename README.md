@@ -63,8 +63,10 @@ De esta forma **no se suben IPs personales al repositorio** y cada persona que e
 `adb reverse tcp:8081 tcp:8081`
 - Luego ya si ejecutamos:
 `npm run start` para el Expo, y ya debería funcionar.
-- Pueden leer el comentario hecho en config.ts, pero se los dejo acá por las dudas también:
+- Pueden leer el comentario hecho en `config.ts`, pero se los dejo acá por las dudas también:
   ```ts
+  export const URL_BACKEND = "http://localhost:3000";
+  
   /*
   Tengo activado la herramienta de desarrollador en Android y hago la conexion por USB primero, para
   hacer el tunel:
