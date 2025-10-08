@@ -54,7 +54,7 @@ const ListaProductos = () => {
             });
 
             if (!response.ok) {
-                throw new Error('Fallo el crear producto: 400');
+                throw new Error('Fallo el crear producto: ' + response.status);
             }
 
             const nuevoProducto = await response.json();
@@ -65,7 +65,7 @@ const ListaProductos = () => {
             setImagenURLProducto("");
             setPrecioProducto("");
             setTituloProducto("");
-            cargarProductos();
+            await cargarProductos();
 
         } catch (error) {
             console.error('Error creando producto:', error);
