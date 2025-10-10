@@ -1,5 +1,5 @@
-import Item from "@/components/Item";
 import { ItemProps } from "@/scripts/data-and-tipe";
+import Item from "@/src/components/Item";
 import { URL_BACKEND } from '@/src/config';
 import { useEffect, useState } from "react";
 import {

@@ -1,4 +1,4 @@
-import ListaProductos from "@/components/ListaProductos";
+import ListaProductos from "@/src/screens/ListaProductos";
 import { StyleSheet } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
